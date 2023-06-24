@@ -6,7 +6,7 @@ import os
 # CUSTOMIZE THESE VALUES
 OUTPUT_IMAGE_WIDTH = 8
 OUTPUT_IMAGE_HEIGHT = 5
-OUTPUT_IMAGE_QUALITY = 100
+OUTPUT_IMAGE_QUALITY = 95
 INPUT_FOLDER_DIR = "input"
 
 
@@ -25,10 +25,10 @@ def generate_base64_strings(input_files):
 
         resized_img = img.resize((OUTPUT_IMAGE_WIDTH, OUTPUT_IMAGE_HEIGHT), Image.LANCZOS)
 
-        # resized_img.save("output.jpg", optimize=True, quality=OUTPUT_QUALITY)
+        # resized_img.save(f"{img_name}.jpg", optimize=True, quality=OUTPUT_IMAGE_QUALITY)
 
         buffered = BytesIO()
-        resized_img.save(buffered, optimize=True, quality=OUTPUT_IMAGE_QUALITY, format="JPEG")
+        resized_img.save(buffered, optimize=True, quality=OUTPUT_IMAGE_QUALITY, subsampling=0, format="JPEG")
         base64_data = base64.b64encode(buffered.getvalue())
 
         image_data_uri = "data:image/jpeg;base64," + str(base64_data)[2:-1]
