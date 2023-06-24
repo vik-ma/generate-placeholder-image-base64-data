@@ -4,3 +4,4 @@
 !.gitignore
 !Pipfile.lock
 !requirements.txt
+!README.md
