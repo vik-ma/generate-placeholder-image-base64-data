@@ -23,8 +23,12 @@ def generate_base64_strings(input_files):
 
         img = Image.open(f"{INPUT_FOLDER_DIR}/{file}")
 
+        if img.mode != 'RGB':
+            img = img.convert('RGB')
+
         resized_img = img.resize((OUTPUT_IMAGE_WIDTH, OUTPUT_IMAGE_HEIGHT), Image.LANCZOS)
 
+        # Uncomment to save the resized image
         # resized_img.save(f"{img_name}.jpg", optimize=True, quality=OUTPUT_IMAGE_QUALITY)
 
         buffered = BytesIO()
