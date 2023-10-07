@@ -2,6 +2,7 @@
 
 !main.py
 !.gitignore
+!Pipfile
 !Pipfile.lock
 !requirements.txt
 !README.md
